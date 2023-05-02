@@ -1,18 +1,28 @@
 package com.goit.CrudServices;
 
+import Repository.NoteRepository;
 import com.goit.Entities.Note;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import static com.goit.JavaDevModule14Application.notesStorage;
 
 @Service
+@RequiredArgsConstructor
 public class NoteService {
 
+    public final NoteRepository repository;
+
+//    public Map<Long, Note> listAll() {
+//        return notesStorage;
+//    }
+
     public Map<Long, Note> listAll() {
-        return notesStorage;
+        return repository.findAll().stream().collect(Collectors.toMap(Note::getId, note -> note));
     }
 
     public Note add(Note note) {

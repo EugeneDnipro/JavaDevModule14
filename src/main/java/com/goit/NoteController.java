@@ -2,6 +2,7 @@ package com.goit;
 
 import com.goit.CrudServices.NoteService;
 import com.goit.Entities.Note;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,9 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/note")
+@RequiredArgsConstructor
 public class NoteController {
+    private final NoteService noteService;
 
-    NoteService noteService = new NoteService();
+//    NoteService noteService = new NoteService();
 
     @GetMapping("/list")
     public ModelAndView list() {
