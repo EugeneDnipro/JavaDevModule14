@@ -33,11 +33,18 @@ public class NoteService {
         return note;
     }
 
+//    public void deleteById(long id) {
+//        if (notesStorage.get(id) == null) {
+//            throw new IllegalArgumentException("There is not any note to DELETE with such ID");
+//        }
+//        notesStorage.remove(id);
+//    }
+
     public void deleteById(long id) {
-        if (notesStorage.get(id) == null) {
+        if (!repository.existsById(id)) {
             throw new IllegalArgumentException("There is not any note to DELETE with such ID");
         }
-        notesStorage.remove(id);
+        repository.deleteById(id);
     }
 
     public void update(Note note) {
