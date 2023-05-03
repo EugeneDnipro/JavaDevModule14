@@ -25,12 +25,17 @@ public class NoteService {
         return repository.findAll().stream().collect(Collectors.toMap(Note::getId, note -> note));
     }
 
+//    public Note add(Note note) {
+//        Random random = new Random();
+//        //note.setId(random.nextLong(1L, Long.MAX_VALUE));
+//        note.setId(random.nextLong(1L, 1000L));
+//        notesStorage.put(note.getId(), note);
+//        return note;
+//    }
+
     public Note add(Note note) {
-        Random random = new Random();
-        //note.setId(random.nextLong(1L, Long.MAX_VALUE));
-        note.setId(random.nextLong(1L, 1000L));
-        notesStorage.put(note.getId(), note);
-        return note;
+        System.out.println("note = " + note);
+        return repository.saveAndFlush(note);
     }
 
 //    public void deleteById(long id) {

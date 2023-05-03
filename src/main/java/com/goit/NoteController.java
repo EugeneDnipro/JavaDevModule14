@@ -27,6 +27,7 @@ public class NoteController {
     @PostMapping("/delete")
     public String noteDelete(@RequestParam(name = "id") long id) {
         noteService.deleteById(id);
+        System.out.println("id = " + id);
         return "redirect:/note/list";
     }
 
