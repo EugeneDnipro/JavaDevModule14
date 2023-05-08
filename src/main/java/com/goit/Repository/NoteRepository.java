@@ -1,4 +1,4 @@
-package Repository;
+package com.goit.Repository;
 
 import com.goit.Entities.Note;
 import org.springframework.data.jpa.repository.JpaRepository;

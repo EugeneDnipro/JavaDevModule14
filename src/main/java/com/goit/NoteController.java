@@ -14,8 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class NoteController {
     private final NoteService noteService;
 
-//    NoteService noteService = new NoteService();
-
     @GetMapping("/list")
     public ModelAndView list() {
         ModelAndView result = new ModelAndView("note/list");
